@@ -1,1 +1,2 @@
-console.log("this is example hi")
+console.log("this is example")
+console.log("blah blah")
