@@ -1,7 +1,7 @@
 //positioning/sizing    
 var margin = {top: 20, right: 20, bottom: 30, left: 45},
-    svg_dx = 310, 
-    svg_dy = 150,
+    svg_dx = 550, 
+    svg_dy = 410,
     plot_dx = svg_dx - margin.right - margin.left,
     plot_dy = svg_dy - margin.top - margin.bottom;
 
@@ -10,11 +10,10 @@ y = d3.scaleLinear().range([plot_dy, margin.top]);
 
 
 var svg = d3.select("body").append("svg")
-        .append("svg")
         .attr("width", svg_dx)
         .attr("height", svg_dy);
 
-var type = "steel";
+var type = "ground";
 console.log("type: ", type)
 //load data
 d3.csv("pokemon.csv", (function(dataU){
@@ -25,7 +24,25 @@ d3.csv("pokemon.csv", (function(dataU){
             type2: d.type2,
             name: d.name,
             attack: d.attack,
-            defense: d.defense
+            defense: d.defense,
+            against_bug: d.against_bug,
+            against_dark: d.against_dark,
+            against_dragon: d.against_dragon,
+            against_electric: d.against_electric,
+            against_fairy: d.against_fairy,
+            against_fight: d.against_fight,
+            against_fire: d.against_fire,
+            against_flying: d.against_flying,
+            against_ghost: d.against_ghost,
+            against_grass: d.against_grass,
+            against_ground: d.against_ground,
+            against_ice: d.against_ice,
+            against_normal: d.against_normal,
+            against_poison: d.against_poison,
+            against_psychic: d.against_psychic,
+            against_rock: d.against_rock,
+            against_steel: d.against_steel,
+            against_water: d.against_water
         };
       })
 
@@ -104,9 +121,9 @@ function highlightBrushedCircles() {
                .attr("class", "brushed");
     }
 }
-/*
-//handles table of values that show up when points are highlighted
-function displayTable() {
+
+//handles points that are highlighted
+function passData() {
 
     // disregard brushes w/o selections  
     if (!d3.event.selection) return;
@@ -116,35 +133,17 @@ function displayTable() {
 
     var d_brushed =  d3.selectAll(".brushed").data();
 
-    // populate table if one or more elements is brushed
-    if (d_brushed.length > 0) {
-        clearTableRows();
-        d_brushed.forEach(d_row => populateTableRow(d_row))
-    } else {
-        clearTableRows();
-    }
+    // pass data?
+    // this.brusheddata = d_brushed
 }
 
 var brush = d3.brush()
               .on("brush", highlightBrushedCircles)
-              .on("end", displayTable); 
+              .on("end", passData); 
 
 svg.append("g")
    .call(brush);
-});
 
-
-
-
-
-
-
-// shows/hides table when different stuff is highlighted
-function clearTableRows() {
-
-hideTableColNames();
-d3.selectAll(".row_data").remove();
-}
 
 function isBrushed(brush_coords, cx, cy) {
 
@@ -156,34 +155,5 @@ function isBrushed(brush_coords, cx, cy) {
 return x0 <= cx && cx <= x1 && y0 <= cy && cy <= y1;
 }
 
-function hideTableColNames() {
-d3.select("body").select("table1").style("visibility", "hidden");
 }
-
-function showTableColNames() {
-d3.select("body").select("table").style("visibility", "visible");
-}
-
-function populateTableRow(d_row) {
-
-showTableColNames();
-
-var d_row_filter = [d_row.date,
-                    d_row.opening, 
-                    d_row.closing,
-                    d_row.delta];
-
-d3.select("table")
-  .append("tr")
-  .attr("class", "row_data")
-  .selectAll("td")
-  .data(d_row_filter)
-  .enter()
-  .append("td")
-  .attr("align", (d, i) => i == 0 ? "left" : "right")
-  .text(d => d);
-}*/
-
-}
-)
-)
+))
