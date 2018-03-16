@@ -16,7 +16,7 @@ function scatterplot(type_given){
     type_given = type_given.toLowerCase();
     var type = type_given;
     //console.log("type:", type_given)
-    console.log("type:", type)
+
     //load data
     d3.csv("data/pokemon.csv", (function(dataU){
           //create map of data
@@ -134,15 +134,15 @@ function scatterplot(type_given){
             d3.select(this).call(brush.move, null);
 
             var d_brushed =  d3.selectAll(".brushed").data();
-
-            // pass data?
-            // this.brusheddata = d_brushed
+			console.log(d_brushed);
+			parallelCoord(d_brushed);
         }
 
         var brush = d3.brush()
                       .on("brush", highlightBrushedCircles)
                       .on("end", passData);
-
+					  
+		
         svg.append("g")
            .call(brush);
 
