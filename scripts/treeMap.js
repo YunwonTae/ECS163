@@ -9,13 +9,19 @@ function treeMap(){
     //Call treeMap Api and set up the width and height
     var treemap = d3.treemap().size([width, height]);
 
+    var legend = d3.select("#treeMap").append("svg")
+                  .style("position", "relative")
+                  .style("width", 200 + "px")
+                  .style("height", 400 + "px")
+                  .style("left", 100 + "px");
+
     //Setting up the canvas
     var canvas = d3.select("#treeMap").append("div")
         .style("position", "relative")
         .style("width", (width + margin.left + margin.right) + "px")
         .style("height", (height + margin.top + margin.bottom) + "px")
         .style("left", margin.left + "px")
-        .style("top", margin.top + "px");
+        .style("top", margin.top  + "px");
 
     d3.json("data/data.json", function(data) {
 
@@ -54,6 +60,97 @@ function treeMap(){
 
       var tooltip = d3.select("#treeMap").append("div").attr("class", "toolTip").attr("id", "toolTip");
 
+      var temp = 0;
+
+      //console.log(tree.leaves())
+      var types = tree.leaves()
+      var type1 = []
+      for (type in types){
+          if (type1.includes(types[type].parent.data.name) === false){
+              type1.push(types[type].parent.data.name)
+          }
+      }
+
+      var colorLegend = legend.datum(root).selectAll("g")
+                              .data(type1)
+                              .enter().append("rect")
+                              .attr("x", 10)
+                              .attr("y", function(d){
+                                  return temp+=20;
+                              })
+                              .style("fill", function(d) {
+                                  if (d == "Bug"){
+                                      return "lightgreen"
+                                  }
+                                  else if (d == "Grass"){
+                                      return "green"
+                                  }
+                                  else if (d == "Fire"){
+                                      return "red"
+                                  }
+                                  else if (d == "Water"){
+                                      return "blue"
+                                  }
+                                  else if (d == "ice"){
+                                      return "lightblue"
+                                  }
+                                  else if (d == "Electric"){
+                                      return "yellow"
+                                  }
+                                  else if (d == "Psychic"){
+                                      return "#e600e6"
+                                  }
+                                  else if (d == "Ghost"){
+                                      return "#4d004d"
+                                  }
+                                  else if (d == "Poison"){
+                                      return "Purple"
+                                  }
+                                  else if (d == "Ground"){
+                                      return "SaddleBrown"
+                                  }
+                                  else if (d == "Fighting"){
+                                      return "#ca641c"
+                                  }
+                                  else if (d == "Rock"){
+                                      return "#808080"
+                                  }
+                                  else if (d == "Dark"){
+                                      return "#262626"
+                                  }
+                                  else if (d == "Steel"){
+                                      return "silver"
+                                  }
+                                  else if (d == "Fairy"){
+                                      return "Pink"
+                                  }
+                                  else if (d == "Dragon"){
+                                      return "Gold"
+                                  }
+                                  else if (d == "Normal"){
+                                      return "White"
+                                  }
+                                  else if (d == "Flying"){
+                                      return "#F0F8FF"
+                                  }
+                              })
+                              .attr("width", 15)
+                              .attr("height",15)
+
+      temp = 0
+      count = []
+      //Color description
+      //Adding text description right next to small rectangle
+      legend.datum(root).selectAll("g")
+                              .data(type1)
+                              .enter().append("text")
+                              .attr("x", 30)
+                              .attr("y", function(d){
+                                  return temp+=20;
+                              })
+                              .attr("dy", 13)
+                              .text(function(d) { return d; })
+
       var tempArr = tree.leaves()
 
       var node = canvas.datum(root).selectAll(".node")
@@ -65,7 +162,6 @@ function treeMap(){
           .style("width", (d) => Math.max(0, d.x1 - d.x0 - 1) + "px")
           .style("height", (d) => Math.max(0, d.y1 - d.y0  - 1) + "px")
           .style("background", function(d){
-              console.log(d)
               if (d.parent.data.name == "Bug"){
                   return "lightgreen"
               }
