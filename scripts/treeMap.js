@@ -45,12 +45,12 @@ function treeMap(){
           });
       });
 
-      console.log(newData);
+      //console.log(newData);
       //Formating the data
       var root = d3.hierarchy(newData, (d) => d.children)
       .sum((d) => d.size);
       var tree = treemap(root);
-      console.log("tree: ", tree);
+      //console.log("tree: ", tree);
 
       var tooltip = d3.select("#treeMap").append("div").attr("class", "toolTip").attr("id", "toolTip");
 
@@ -64,13 +64,70 @@ function treeMap(){
           .style("top", (d) => d.y0 + "px")
           .style("width", (d) => Math.max(0, d.x1 - d.x0 - 1) + "px")
           .style("height", (d) => Math.max(0, d.y1 - d.y0  - 1) + "px")
-          .style("background", (d) => color(d.parent.data.name))
+          .style("background", function(d){
+              console.log(d)
+              if (d.parent.data.name == "Bug"){
+                  return "lightgreen"
+              }
+              else if (d.parent.data.name == "Grass"){
+                  return "green"
+              }
+              else if (d.parent.data.name == "Fire"){
+                  return "red"
+              }
+              else if (d.parent.data.name == "Water"){
+                  return "blue"
+              }
+              else if (d.parent.data.name == "ice"){
+                  return "lightblue"
+              }
+              else if (d.parent.data.name == "Electric"){
+                  return "yellow"
+              }
+              else if (d.parent.data.name == "Psychic"){
+                  return "#e600e6"
+              }
+              else if (d.parent.data.name == "Ghost"){
+                  return "#4d004d"
+              }
+              else if (d.parent.data.name == "Poison"){
+                  return "Purple"
+              }
+              else if (d.parent.data.name == "Ground"){
+                  return "SaddleBrown"
+              }
+              else if (d.parent.data.name == "Fighting"){
+                  return "#ca641c"
+              }
+              else if (d.parent.data.name == "Rock"){
+                  return "#808080"
+              }
+              else if (d.parent.data.name == "Dark"){
+                  return "#262626"
+              }
+              else if (d.parent.data.name == "Steel"){
+                  return "silver"
+              }
+              else if (d.parent.data.name == "Fairy"){
+                  return "Pink"
+              }
+              else if (d.parent.data.name == "Dragon"){
+                  return "Gold"
+              }
+              else if (d.parent.data.name == "Normal"){
+                  return "White"
+              }
+              else if (d.parent.data.name == "Flying"){
+                  return "#F0F8FF"
+              }
+              return color(d.parent.data.name);
+          })
           .html(function(d) { return d.data.name})
           .on("click", function(d){
             clicked(d.parent.data.name);
           })
           .on("mousemove", function (d) { //Adding toolTip
-              tooltip.style("left", d3.event.pageX + 10 + "px")
+              tooltip.style("left", d3.event.pageX - 200 + "px")
               tooltip.style("top", d3.event.pageY - 20 + "px")
               tooltip.style("display", "inline-block")
               tooltip.html(d.children ? null : "Type1: " + d.parent.data.name + "<br>" + "Type2: " + d.data.name + "<br>" + "Number of Pokemon: " + d.data.size);
