@@ -133,58 +133,58 @@ function treeMap(){
 
       function type_color(d){
           if (d == "Bug"){
-              return "lightgreen"
+              return "#a8b820"
           }
           else if (d == "Grass"){
-              return "green"
+              return "#78c850"
           }
           else if (d == "Fire"){
-              return "red"
+              return "#f08030"
           }
           else if (d == "Water"){
-              return "blue"
+              return "#6890f0"
           }
           else if (d == "ice"){
-              return "lightblue"
+              return "#98d8d8"
           }
           else if (d == "Electric"){
-              return "yellow"
+              return "#f8d030"
           }
           else if (d == "Psychic"){
-              return "#e600e6"
+              return "#f85888"
           }
           else if (d == "Ghost"){
-              return "#4d004d"
+              return "#705898"
           }
           else if (d == "Poison"){
-              return "Purple"
+              return "#a040a0"
           }
           else if (d == "Ground"){
-              return "SaddleBrown"
+              return "#e0c068"
           }
           else if (d == "Fighting"){
-              return "#ca641c"
+              return "#c03028"
           }
           else if (d == "Rock"){
-              return "#808080"
+              return "#b8a038"
           }
           else if (d == "Dark"){
-              return "#262626"
+              return "#705848"
           }
           else if (d == "Steel"){
-              return "silver"
+              return "#b8b8d0"
           }
           else if (d == "Fairy"){
-              return "Pink"
+              return "#e898e8"
           }
           else if (d == "Dragon"){
-              return "Gold"
+              return "#7038f8"
           }
           else if (d == "Normal"){
-              return "White"
+              return "#8a8a59"
           }
           else if (d == "Flying"){
-              return "#F0F8FF"
+              return "#a890f0"
           }
       }
 
