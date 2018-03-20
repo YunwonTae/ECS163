@@ -134,7 +134,6 @@ function scatterplot(type_given){
             d3.select(this).call(brush.move, null);
 
             var d_brushed =  d3.selectAll(".brushed").data();
-			console.log(d_brushed);
 			parallelCoord(d_brushed);
         }
 

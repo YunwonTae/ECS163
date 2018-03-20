@@ -27,6 +27,7 @@
   position: absolute;
   text-indent: 1px;
   opacity: 1;
+  text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
 }
 
 body {
@@ -42,7 +43,6 @@ p {
   text-justify: inter-word
 }
 
-/*Scatter Plot Style*/
 text {
     font-family: sans-serif;
     fill: #000000;

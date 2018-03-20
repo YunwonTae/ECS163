@@ -209,6 +209,7 @@ function parallelCoord(data){
 		}
 	}
 
+	console.log(data)
 	dataParse(data);
 
 	function dataParse(data) {
