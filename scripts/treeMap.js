@@ -79,60 +79,7 @@ function treeMap(){
                                   return temp+=20;
                               })
                               .style("fill", function(d) {
-                                  if (d == "Bug"){
-                                      return "lightgreen"
-                                  }
-                                  else if (d == "Grass"){
-                                      return "green"
-                                  }
-                                  else if (d == "Fire"){
-                                      return "red"
-                                  }
-                                  else if (d == "Water"){
-                                      return "blue"
-                                  }
-                                  else if (d == "ice"){
-                                      return "lightblue"
-                                  }
-                                  else if (d == "Electric"){
-                                      return "yellow"
-                                  }
-                                  else if (d == "Psychic"){
-                                      return "#e600e6"
-                                  }
-                                  else if (d == "Ghost"){
-                                      return "#4d004d"
-                                  }
-                                  else if (d == "Poison"){
-                                      return "Purple"
-                                  }
-                                  else if (d == "Ground"){
-                                      return "SaddleBrown"
-                                  }
-                                  else if (d == "Fighting"){
-                                      return "#ca641c"
-                                  }
-                                  else if (d == "Rock"){
-                                      return "#808080"
-                                  }
-                                  else if (d == "Dark"){
-                                      return "#262626"
-                                  }
-                                  else if (d == "Steel"){
-                                      return "silver"
-                                  }
-                                  else if (d == "Fairy"){
-                                      return "Pink"
-                                  }
-                                  else if (d == "Dragon"){
-                                      return "Gold"
-                                  }
-                                  else if (d == "Normal"){
-                                      return "White"
-                                  }
-                                  else if (d == "Flying"){
-                                      return "#F0F8FF"
-                                  }
+                                  return type_color(d);
                               })
                               .attr("width", 15)
                               .attr("height",15)
@@ -162,61 +109,7 @@ function treeMap(){
           .style("width", (d) => Math.max(0, d.x1 - d.x0 - 1) + "px")
           .style("height", (d) => Math.max(0, d.y1 - d.y0  - 1) + "px")
           .style("background", function(d){
-              if (d.parent.data.name == "Bug"){
-                  return "lightgreen"
-              }
-              else if (d.parent.data.name == "Grass"){
-                  return "green"
-              }
-              else if (d.parent.data.name == "Fire"){
-                  return "red"
-              }
-              else if (d.parent.data.name == "Water"){
-                  return "blue"
-              }
-              else if (d.parent.data.name == "ice"){
-                  return "lightblue"
-              }
-              else if (d.parent.data.name == "Electric"){
-                  return "yellow"
-              }
-              else if (d.parent.data.name == "Psychic"){
-                  return "#e600e6"
-              }
-              else if (d.parent.data.name == "Ghost"){
-                  return "#4d004d"
-              }
-              else if (d.parent.data.name == "Poison"){
-                  return "Purple"
-              }
-              else if (d.parent.data.name == "Ground"){
-                  return "SaddleBrown"
-              }
-              else if (d.parent.data.name == "Fighting"){
-                  return "#ca641c"
-              }
-              else if (d.parent.data.name == "Rock"){
-                  return "#808080"
-              }
-              else if (d.parent.data.name == "Dark"){
-                  return "#262626"
-              }
-              else if (d.parent.data.name == "Steel"){
-                  return "silver"
-              }
-              else if (d.parent.data.name == "Fairy"){
-                  return "Pink"
-              }
-              else if (d.parent.data.name == "Dragon"){
-                  return "Gold"
-              }
-              else if (d.parent.data.name == "Normal"){
-                  return "White"
-              }
-              else if (d.parent.data.name == "Flying"){
-                  return "#F0F8FF"
-              }
-              return color(d.parent.data.name);
+              return type_color(d.parent.data.name);
           })
           .html(function(d) { return d.data.name})
           .on("click", function(d){
@@ -236,6 +129,63 @@ function treeMap(){
           var scatterElement = document.getElementById('scatterplot');
           scatterElement.innerHTML = '';
           scatterplot(type);
+      }
+
+      function type_color(d){
+          if (d == "Bug"){
+              return "lightgreen"
+          }
+          else if (d == "Grass"){
+              return "green"
+          }
+          else if (d == "Fire"){
+              return "red"
+          }
+          else if (d == "Water"){
+              return "blue"
+          }
+          else if (d == "ice"){
+              return "lightblue"
+          }
+          else if (d == "Electric"){
+              return "yellow"
+          }
+          else if (d == "Psychic"){
+              return "#e600e6"
+          }
+          else if (d == "Ghost"){
+              return "#4d004d"
+          }
+          else if (d == "Poison"){
+              return "Purple"
+          }
+          else if (d == "Ground"){
+              return "SaddleBrown"
+          }
+          else if (d == "Fighting"){
+              return "#ca641c"
+          }
+          else if (d == "Rock"){
+              return "#808080"
+          }
+          else if (d == "Dark"){
+              return "#262626"
+          }
+          else if (d == "Steel"){
+              return "silver"
+          }
+          else if (d == "Fairy"){
+              return "Pink"
+          }
+          else if (d == "Dragon"){
+              return "Gold"
+          }
+          else if (d == "Normal"){
+              return "White"
+          }
+          else if (d == "Flying"){
+              return "#F0F8FF"
+          }
       }
 
 }
