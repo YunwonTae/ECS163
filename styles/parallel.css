@@ -4,6 +4,7 @@ body {
 
 .parcoords {
   display: block;
+  transform: translate(-70px,0px);
 }
 
 .parcoords svg,

@@ -43,9 +43,6 @@ function parallelCoord(data){
 		type: types["String"],
 		axis: d3.axisLeft()
 		  .tickFormat(function(d,i) {
-			if (d == null){
-				return "only"
-			}
 			return d;
 		  })
 	  },
@@ -205,11 +202,17 @@ function parallelCoord(data){
 	  .enter().append("g")
 		.attr("class", function(d) { return "axis " + d.key.replace(/ /g, "_"); })
 		.attr("transform", function(d,i) { return "translate(" + xscale(i) + ")"; });
-	dataParse(data);
-	function dataParse(data) {
-	  //if (error) throw error;
 
-	  // shuffle the data!
+	for (var i in data){
+		if (data[i].type2 == ""){
+			data[i].type2 = "only"
+		}
+	}
+
+	dataParse(data);
+
+	function dataParse(data) {
+
 	  data = d3.shuffle(data);
 
 	  data.forEach(function(d) {
@@ -287,7 +290,7 @@ function parallelCoord(data){
 	  };
 
 	  function draw(d) {
-		ctx.strokeStyle = color(d.type1);
+		ctx.strokeStyle = color(d.type2);
 		ctx.beginPath();
 		var coords = project(d);
 		coords.forEach(function(p,i) {

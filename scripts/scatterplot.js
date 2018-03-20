@@ -1,7 +1,7 @@
 //positioning/sizing
 function scatterplot(type_given){
     var margin = {top: 20, right: 20, bottom: 30, left: 45},
-        svg_dx = 550,
+        svg_dx = 560,
         svg_dy = 410,
         plot_dx = svg_dx - margin.right - margin.left,
         plot_dy = svg_dy - margin.top - margin.bottom;
@@ -78,7 +78,7 @@ function scatterplot(type_given){
 
         svg.append("g")
            .attr("id", "axis_y")
-           .attr("transform", "translate(" + (margin.left / 2) + ", 0)")
+           .attr("transform", "translate(" + (margin.left / 1) + ", 0)")
            .call(axis_y);
 
         d3.select("#axis_x")
@@ -141,8 +141,8 @@ function scatterplot(type_given){
         var brush = d3.brush()
                       .on("brush", highlightBrushedCircles)
                       .on("end", passData);
-					  
-		
+
+
         svg.append("g")
            .call(brush);
 
