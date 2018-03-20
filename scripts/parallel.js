@@ -38,11 +38,14 @@ function parallelCoord(data){
 
 	var dimensions = [
 	  {
-		key: "type1",
-		description: "type1",
+		key: "type2",
+		description: "type2",
 		type: types["String"],
 		axis: d3.axisLeft()
 		  .tickFormat(function(d,i) {
+			if (d == null){
+				return "only"
+			}
 			return d;
 		  })
 	  },
@@ -151,18 +154,19 @@ function parallelCoord(data){
 		type: types["Number"],
 		scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },*/
-	  {
-		key: "type2",
-		description: "Type2", 
-		type: types["String"],
-		axis: d3.axisRight()
-		  .tickFormat(function(d,i) {
-			if (d == null) return "(null)";
-			return i % 5 == 0 ? d.slice(0,22) : "";
-		  })
-	  }
+	  // {
+		// key: "type2",
+		// description: "Type2",
+		// type: types["String"],
+		// axis: d3.axisRight()
+		//   .tickFormat(function(d,i) {
+		// 	// if (d == null) return "(null)";
+		// 	// return i % 5 == 0 ? d.slice(0,22) : "";
+		// 	return d;
+		//   })
+	  // }
 	];
-	
+
 	var xscale = d3.scalePoint()
 		.domain(d3.range(dimensions.length))
 		.range([0, width]);
@@ -194,7 +198,7 @@ function parallelCoord(data){
 	ctx.lineWidth = 1.5;
 	ctx.scale(devicePixelRatio, devicePixelRatio);
 
-	var output = d3.select("#parallel").append("pre");
+	//var output = d3.select("#parallel").append("pre");
 
 	var axes = svg.selectAll(".axis")
 		.data(dimensions)
@@ -267,8 +271,8 @@ function parallelCoord(data){
 
 	  d3.selectAll(".axis.type1 .tick text")
 		.style("fill", color);
-		
-	  output.text(d3.tsvFormat(data.slice(0,24)));
+
+	  //output.text(d3.tsvFormat(data.slice(0,24)));
 
 	  function project(d) {
 		return dimensions.map(function(p,i) {
@@ -306,7 +310,7 @@ function parallelCoord(data){
 			}
 			return;
 		  }
-		  
+
 		  if (i == 0) {
 			ctx.moveTo(p[0],p[1]);
 			return;
@@ -379,7 +383,7 @@ function parallelCoord(data){
 		ctx.globalAlpha = d3.min([0.85/Math.pow(selected.length,0.3),1]);
 		render(selected);
 
-		output.text(d3.tsvFormat(selected.slice(0,24)));
+		//output.text(d3.tsvFormat(selected.slice(0,24)));
 	  }
 	};
 
