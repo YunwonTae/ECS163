@@ -1,3 +1,7 @@
+.flex-container{
+    display:flex;
+}
+
 .toolTip { /*Add caption when we put mouseover the Node*/
     position: absolute;
     display: none;
