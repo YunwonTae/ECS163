@@ -56,7 +56,62 @@ function scatterplot(type_given){
                 data.push(pokemon)});
         //console.log("filtered", data)
 
-
+        function type_color(d){
+            if (d == "bug"){
+                return "#a8b820"
+            }
+            else if (d == "grass"){
+                return "#78c850"
+            }
+            else if (d == "fire"){
+                return "#f08030"
+            }
+            else if (d == "water"){
+                return "#6890f0"
+            }
+            else if (d == "ice"){
+                return "#98d8d8"
+            }
+            else if (d == "electric"){
+                return "#f8d030"
+            }
+            else if (d == "psychic"){
+                return "#f85888"
+            }
+            else if (d == "ghost"){
+                return "#705898"
+            }
+            else if (d == "poison"){
+                return "#a040a0"
+            }
+            else if (d == "ground"){
+                return "#e0c068"
+            }
+            else if (d == "fighting"){
+                return "#c03028"
+            }
+            else if (d == "rock"){
+                return "#b8a038"
+            }
+            else if (d == "dark"){
+                return "#705848"
+            }
+            else if (d == "steel"){
+                return "#b8b8d0"
+            }
+            else if (d == "fairy"){
+                return "#e898e8"
+            }
+            else if (d == "dragon"){
+                return "#7038f8"
+            }
+            else if (d == "normal"){
+                return "#8a8a59"
+            }
+            else if (d == "flying"){
+                return "#a890f0"
+            }
+        }
 
         //scale/size visualization
         var n = data.length;
@@ -100,7 +155,12 @@ function scatterplot(type_given){
                          .attr("r", 5)
                          .attr("cx", (data) => x(data.attack))
                          .attr("cy", (data) => y(data.defense))
-                         .attr("class", "non_brushed");
+                         .attr("class", "non_brushed")
+                         .style("fill", function(d){ 
+                            return d.type2 == ""
+                              ? type_color(d.type1)
+                              : type_color(d.type2);
+                            });
 
         //handles dragging and highlighting points
         function highlightBrushedCircles() {
@@ -108,7 +168,8 @@ function scatterplot(type_given){
             if (d3.event.selection != null) {
 
                 // revert circles to initial style
-                circles.attr("class", "non_brushed");
+                circles.attr("class", "non_brushed")
+                        .attr("r", 5);
 
                 var brush_coords = d3.brushSelection(this);
 
@@ -120,7 +181,8 @@ function scatterplot(type_given){
 
                            return isBrushed(brush_coords, cx, cy);
                        })
-                       .attr("class", "brushed");
+                       .attr("class", "brushed")
+                       .attr("r", 8);
             }
         }
 
@@ -134,6 +196,7 @@ function scatterplot(type_given){
             d3.select(this).call(brush.move, null);
 
             var d_brushed =  d3.selectAll(".brushed").data();
+			console.log(d_brushed);
 			parallelCoord(d_brushed);
         }
 
