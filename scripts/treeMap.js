@@ -144,7 +144,7 @@ function treeMap(){
           else if (d == "Water"){
               return "#6890f0"
           }
-          else if (d == "ice"){
+          else if (d == "Ice"){
               return "#98d8d8"
           }
           else if (d == "Electric"){
