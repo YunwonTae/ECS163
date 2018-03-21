@@ -232,6 +232,9 @@ function parallelCoord(data){
 		if (!("domain" in dim)) {
 		  // detect domain using dimension type's extent function
 		  dim.domain = d3_functor(dim.type.extent)(data.map(function(d) { return d[dim.key]; }));
+		  if ( (typeof dim.domain[0]) != "string"){
+			  dim.domain[0] = 0;
+		  }
 		}
 		if (!("scale" in dim)) {
 		  // use type's default scale for dimension
