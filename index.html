@@ -3,15 +3,25 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<link rel="stylesheet" type="text/css" href="styles/header.css">
 		<link rel="stylesheet" type="text/css" href="styles/parallel.css">
 		<title>Project 2 - Yunwon Tae</title>
+		<script src='./lib/jquery-3.1.1.min.js'></script>
+		<script>
+			$(function(){
+				$("#includedContent").load("./HTML/poke-header.html");
+			});
+		</script>
 	</head>
+	<div id="includedContent"></div>
 	<body style="background-color:white">
 		<div class="flex-container">
 			<div id="treeMap" class="flex-container"></div>
 			<div id="scatterplot"></div>
 		</div>
-		<div id="parallel"></div>
+		<div class="flex-container">
+			<div id="parallel"></div>
+		</div>
 	</body>
 	<!-- Library -->
 	<script src='./lib/d3.v4.min.js'></script>

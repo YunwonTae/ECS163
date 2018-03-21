@@ -116,7 +116,8 @@ function treeMap(){
             clicked(d.parent.data.name);
           })
           .on("mousemove", function (d) { //Adding toolTip
-              tooltip.style("left", d3.event.pageX - 200 + "px")
+              console.log("hello")
+              tooltip.style("left", d3.event.pageX - 190 + "px")
               tooltip.style("top", d3.event.pageY - 20 + "px")
               tooltip.style("display", "inline-block")
               tooltip.html(d.children ? null : "Type1: " + d.parent.data.name + "<br>" + "Type2: " + d.data.name + "<br>" + "Number of Pokemon: " + d.data.size);
