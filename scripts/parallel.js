@@ -136,21 +136,21 @@ function parallelCoord(data){
 		type: types["Number"],
 		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
-	  {
-		key: "attack",
-		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
-	  },
-	  {
-		key: "defense",
-		type: types["Number"],
+	 //  {
+		// key: "attack",
+		// type: types["Number"],
 		// scale: d3.scaleSqrt().range([innerHeight, 0])
-	  },
-	  {
-		key: "base_total",
-		type: types["Number"],
-		// scale: d3.scaleSqrt().range([innerHeight, 0])
-	  },
+	 //  },
+	 //  {
+		// key: "defense",
+		// type: types["Number"],
+		// // scale: d3.scaleSqrt().range([innerHeight, 0])
+	 //  },
+	 //  {
+		// key: "base_total",
+		// type: types["Number"],
+		// // scale: d3.scaleSqrt().range([innerHeight, 0])
+	 //  },
 	  // {
 		// key: "type2",
 		// description: "Type2",
