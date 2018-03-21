@@ -37,8 +37,7 @@ body {
   pointer-events: none;
 }
 
-.axis.manufac_name .tick text,
-.axis.food_group .tick text {
+.axis.type2 .tick text {
   opacity: 1;
 }
 
