@@ -15,6 +15,25 @@
 		</script>
 	</head>
 	<body style="background-color: #E0FAFB;">
+		<div id="top-menu">
+			<style>
+			#top-menu {
+				position:absolute;
+				top:170px;
+				left:0;
+			}
+			.menu-item, .menu-item a {
+				display:inline-flex;
+				font-family:Verdana;
+				padding:0 20px;
+				color:#fff;
+				font-weight:bold;
+				background:#04bbd3;
+				z-index:1000;}
+			</style>
+			<div class="menu-item"><a href="javascript:;" onclick="document.getElementById('scatterplot').innerHTML = '';document.getElementById('parallel').innerHTML = '';">Reset Dashboard</a></div>
+			<!--<div class="menu-item"><a>Hello2</a></div>-->
+		</div>
 		<div>
 			<canvas id="backround"></canvas>
 			<div id="includedContent"></div>
