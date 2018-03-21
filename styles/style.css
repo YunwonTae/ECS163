@@ -10,7 +10,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: -150px;
 }
 
 .toolTip { /*Add caption when we put mouseover the Node*/

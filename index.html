@@ -2,10 +2,11 @@
 <meta charset="UTF-8">
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<link rel="stylesheet" type="text/css" href="styles/background.css">
 		<link rel="stylesheet" type="text/css" href="styles/header.css">
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
 		<link rel="stylesheet" type="text/css" href="styles/parallel.css">
-		<title>Project 2 - Yunwon Tae</title>
+		<title>Final - Yunwon Tae</title>
 		<script src='./lib/jquery-3.1.1.min.js'></script>
 		<script>
 			$(function(){
@@ -13,14 +14,17 @@
 			});
 		</script>
 	</head>
-	<div id="includedContent"></div>
-	<body style="background-color:white">
-		<div class="flex-container">
-			<div id="treeMap" class="flex-container"></div>
-			<div id="scatterplot"></div>
-		</div>
-		<div class="flex-container">
-			<div id="parallel"></div>
+	<body style="background-color: #E0FAFB;">
+		<div>
+			<canvas id="backround"></canvas>
+			<div id="includedContent"></div>
+			<div class="flex-container">
+				<div id="treeMap" class="flex-container"></div>
+				<div id="scatterplot"></div>
+			</div>
+			<div class="flex-container">
+				<div id="parallel"></div>
+			</div>
 		</div>
 	</body>
 	<!-- Library -->
@@ -30,5 +34,6 @@
 	<script src='./scripts/scatterplot.js'></script>
 	<script src='./scripts/render-queue.js'></script>
 	<script src='./scripts/parallel.js'></script>
+	<script src='./scripts/background.js'></script>
 	<script src="./scripts/main.js"></script>
 </html>
