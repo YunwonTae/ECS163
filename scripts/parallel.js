@@ -49,93 +49,93 @@ function parallelCoord(data){
 	  {
 		key: "against_bug",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_dark",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_dragon",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_electric",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_fairy",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_fight",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_fire",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_flying",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_ghost",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_grass",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_ground",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_ice",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_normal",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_poison",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_psychic",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_rock",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_steel",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "against_water",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
-	  },/*
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
+	  },
 	  {
 		key: "attack",
 		type: types["Number"],
@@ -144,13 +144,13 @@ function parallelCoord(data){
 	  {
 		key: "defense",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
 	  },
 	  {
 		key: "base_total",
 		type: types["Number"],
-		scale: d3.scaleSqrt().range([innerHeight, 0])
-	  },*/
+		// scale: d3.scaleSqrt().range([innerHeight, 0])
+	  },
 	  // {
 		// key: "type2",
 		// description: "Type2",
