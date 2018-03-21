@@ -243,7 +243,7 @@ function parallelCoord(data){
 		dim.scale.domain(dim.domain);
 	  });
 
-	  var render = renderQueue(draw).rate(50);
+	  var render = renderQueue(draw).rate(1);
 
 	  ctx.clearRect(0,0,width,height);
 	  ctx.globalAlpha = d3.min([0.85/Math.pow(data.length,0.3),1]);
@@ -276,7 +276,7 @@ function parallelCoord(data){
 		  .attr("x", -8)
 		  .attr("width", 16);
 
-	  d3.selectAll(".axis.type1 .tick text")
+	  d3.selectAll(".axis.type2 .tick text")
 		.style("fill", color);
 
 	  //output.text(d3.tsvFormat(data.slice(0,24)));
