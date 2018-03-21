@@ -149,6 +149,11 @@ function scatterplot(type_given){
         var tooltip = d3.select("#scatterplot").append("div").attr("class", "toolTip").attr("id", "toolTip");
 
         // handles marks
+        // var text = svg.append("text")
+        //         .
+        console.log(data);
+        var title = data[0].type1.toUpperCase();
+        $('#scatterplot').prepend(`<h3>${title}</h3>`);
         var circles = svg.append("g")
                          .selectAll("circle")
                          .data(data)
