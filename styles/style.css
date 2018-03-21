@@ -5,6 +5,12 @@
     align-items: center;
     margin-top: 50px;
 }
+.flex-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .flex-header{
     display: flex;
     flex-direction: row;

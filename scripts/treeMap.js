@@ -116,7 +116,7 @@ function treeMap(){
             clicked(d.parent.data.name);
           })
           .on("mousemove", function (d) { //Adding toolTip
-              console.log("hello")
+              //console.log("hello")
               tooltip.style("left", d3.event.pageX - 190 + "px")
               tooltip.style("top", d3.event.pageY - 20 + "px")
               tooltip.style("display", "inline-block")

@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="styles/header.css">
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
 		<link rel="stylesheet" type="text/css" href="styles/parallel.css">
+		<link rel="stylesheet" type="text/css" href="styles/button.css">
 		<title>Final - Yunwon Tae</title>
 		<script src='./lib/jquery-3.1.1.min.js'></script>
 		<script>
@@ -39,7 +40,13 @@
 			<div id="includedContent"></div>
 			<div class="flex-container">
 				<div id="treeMap" class="flex-container"></div>
-				<div id="scatterplot"></div>
+				<div class="flex-button">
+					<div id="scatterplot"></div>
+					<div class="scatter buttons">
+						<button class="Yes" role="button" >Brush: Activate</button>
+						<button class="No" role="button" >Brush: Deactivate</button>
+					</div>
+				</div>
 			</div>
 			<div class="flex-container">
 				<div id="parallel"></div>

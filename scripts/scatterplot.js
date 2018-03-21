@@ -146,6 +146,8 @@ function scatterplot(type_given){
           .attr("transform", "rotate(-90) translate(-20, 15)")
           .text("Defense");
 
+        var tooltip = d3.select("#scatterplot").append("div").attr("class", "toolTip").attr("id", "toolTip");
+
         // handles marks
         var circles = svg.append("g")
                          .selectAll("circle")
@@ -156,13 +158,22 @@ function scatterplot(type_given){
                          .attr("cx", (data) => x(data.attack))
                          .attr("cy", (data) => y(data.defense))
                          .attr("class", "non_brushed")
-                         .style("fill", function(d){ 
+                         .style("fill", function(d){
                             return d.type2 == ""
                               ? type_color(d.type1)
                               : type_color(d.type2);
-                            });
+                            })
+                        .on("mousemove", function (d) { //Adding toolTip
+                            //console.log("scatter: ",d);
+                            tooltip.style("left", d3.event.pageX + 20 + "px")
+                            tooltip.style("top", d3.event.pageY - 20 + "px")
+                            tooltip.style("display", "inline-block")
+                            tooltip.html(d.children ? null : "Name: " + d.name + "<br>" + "Attack: " + d.attack + "<br>" + "Defense: " + d.defense);
+                        }).on("mouseout", function (d) {
+                            tooltip.style("display", "none");
+                        });
 
-        //handles dragging and highlighting points
+        // //handles dragging and highlighting points
         function highlightBrushedCircles() {
 
             if (d3.event.selection != null) {
@@ -203,10 +214,11 @@ function scatterplot(type_given){
         var brush = d3.brush()
                       .on("brush", highlightBrushedCircles)
                       .on("end", passData);
-
-
-        svg.append("g")
-           .call(brush);
+        //
+        //
+        // svg.append("g")
+        //     .attr("id", "brush")
+        //     .call(brush);
 
         function isBrushed(brush_coords, cx, cy) {
             var x0 = brush_coords[0][0],
@@ -216,6 +228,21 @@ function scatterplot(type_given){
 
             return x0 <= cx && cx <= x1 && y0 <= cy && cy <= y1;
         }
+
+        //Scatter Plot: Button Trigger
+        var YesMode = true;
+          $(".Yes").click(function() {
+              svg.append("g")
+                  .attr("id", "brush")
+                  .call(brush);
+          });
+          var NoMode = true;
+          $(".No").click(function() {
+            //document.getElementById('brush').innerHTML = '';
+            var svg = d3.select("#brush").remove();
+            //svg.select("g").remove();
+
+          });
 
     }));
 }
