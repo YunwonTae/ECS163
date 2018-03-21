@@ -127,6 +127,7 @@ function treeMap(){
 
       });
       function clicked(type){
+          $("#scatter_buttons").attr("style","display:block");
           var scatterElement = document.getElementById('scatterplot');
           scatterElement.innerHTML = '';
           scatterplot(type);

@@ -32,7 +32,7 @@
 				background:#04bbd3;
 				z-index:1000;}
 			</style>
-			<div class="menu-item"><a href="javascript:;" onclick="document.getElementById('scatterplot').innerHTML = '';document.getElementById('parallel').innerHTML = '';">Reset Dashboard</a></div>
+			<div class="menu-item"><a href="javascript:;" onclick="$('#scatter_buttons').attr('style','display:none');document.getElementById('scatterplot').innerHTML = '';document.getElementById('parallel').innerHTML = '';">Reset Dashboard</a></div>
 			<!--<div class="menu-item"><a>Hello2</a></div>-->
 		</div>
 		<div>
@@ -42,9 +42,9 @@
 				<div id="treeMap" class="flex-container"></div>
 				<div class="flex-button">
 					<div id="scatterplot"></div>
-					<div class="scatter buttons">
-						<button class="Yes" role="button" >Brush: Activate</button>
-						<button class="No" role="button" >Brush: Deactivate</button>
+					<div id="scatter_buttons" style="display:none">
+						<button class="Yes" role="button">Brush: Activate</button>
+						<button class="No" role="button">Brush: Deactivate</button>
 					</div>
 				</div>
 			</div>
